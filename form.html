@@ -1,0 +1,366 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+
+    <div class="modal fade show d-block" id="modalSend">
+        <div class="modal-dialog modal-dialog-centered modal-between-sm-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">New Action</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                                <div class="col-5">Action function</div>
+                            <div class="col-7 ml-auto">
+                                <select class="form-control" value name="ActionType" data-placeholder="Select" id="ActionType" >
+
+                                        <option value="">select action</option>  
+                                       <option value="NO_ACTION">NO_ACTION</option>
+                                        <option value="FORM">FORM</option>
+                                        <option value="TRANSLIT">TRANSLIT</option>
+                                        <option value="SEND">SEND</option>
+                                        <option value="DEFINE_USER_LANGUAGE">DEFINE_USER_LANGUAGE</option>
+                                        <option value="DROP">DROP</option>
+                                        <option value="DEFINE_ABONENT_INFO">DEFINE_ABONENT_INFO</option>
+                                        <option value="ADD_TAIL_FROM_BALANCE">ADD_TAIL_FROM_BALANCE</option>
+                                        <option value="HTTP_REQUEST_ACTION">HTTP_REQUEST_ACTION</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+           
+
+                        <div class="col-12" ><h5>Action arguments</h5></div>
+                        <div class="card-body">
+    
+                            <div class="form-group">
+                                <label for="SendChannel">Send Channel</label>
+                                <input type="text" class="form-control" id="SendChannel"value="SMPP">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="MessageType">Example select</label>
+                                <select class="form-control" id="MessageType">
+                                    <option>USSD IN</option>
+                                    <option>SMS</option>
+                                    <option>FLASH SMS</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Notification Lifetime Seconds">Send Channel</label>
+                                <input type="text" class="form-control" id="NotificationLifetimeSec"value="3600">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="Source Address">Send Channel</label>
+                                <input type="text" class="form-control" id="SourceAddress"value="{AS_SOURCE}">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="SourceTON">Source TON</label>
+                                <select class="form-control" id="SourceTON">
+                                    <option selected>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="SourceNPI">Source NPI</label>
+                                <select class="form-control" id="SourceNPI">
+                                    <option>0</option>
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="DestTON">Dest TON</label>
+                                <select class="form-control" id="DestTON">
+                                    <option>0</option>
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="DestNPI">Dest NPI</label>
+                                <select class="form-control" id="DestNPI">
+                                    <option>0</option>
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="DataCoding">Data Coding</label>
+                                <input type="text" class="form-control" id="DataCoding"value="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="PID">PID</label>
+                                <input type="text" class="form-control" id="PID"value="0">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="GSMPriorityLevel">GSM Priority Level</label>
+                                <select class="form-control" id="GSMPriorityLevel">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="ReplaceIfPresent">Replace If Present</label>
+                                <select class="form-control" id="ReplaceIfPresent">
+                                    <option>True</option>
+                                    <option selected>False</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="modal-footer  float-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('general.close')</button>
+                        <button type="button" class="saveBtn btn btn-success" id="generalSave">@lang('general.save') </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- ============================================================================================================ -->
+
+    <div class="col-12" ><h5>Action arguments</h5></div>
+    <div class="card-body">
+
+        <div class="form-group">
+            <label for="SendChannel">Send Channel</label>
+            <input type="text" class="form-control" id="SendChannel"value="SMPP">
+        </div>
+        <div class="form-group mt-3">
+            <label for="MessageType">Example select</label>
+            <select class="form-control" id="MessageType">
+                <option>USSD IN</option>
+                <option>SMS</option>
+                <option>FLASH SMS</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Notification Lifetime Seconds">Send Channel</label>
+            <input type="text" class="form-control" id="NotificationLifetimeSec"value="3600">
+        </div>
+
+        <div class="form-group">
+            <label for="Source Address">Send Channel</label>
+            <input type="text" class="form-control" id="SourceAddress"value="{AS_SOURCE}">
+        </div>
+        <div class="form-group mt-3">
+            <label for="SourceTON">Source TON</label>
+            <select class="form-control" id="SourceTON">
+                <option selected>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="SourceNPI">Source NPI</label>
+            <select class="form-control" id="SourceNPI">
+                <option>0</option>
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="DestTON">Dest TON</label>
+            <select class="form-control" id="DestTON">
+                <option>0</option>
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="DestNPI">Dest NPI</label>
+            <select class="form-control" id="DestNPI">
+                <option>0</option>
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="DataCoding">Data Coding</label>
+            <input type="text" class="form-control" id="DataCoding"value="8">
+        </div>
+        <div class="form-group">
+            <label for="PID">PID</label>
+            <input type="text" class="form-control" id="PID"value="0">
+        </div>
+        <div class="form-group mt-3">
+            <label for="GSMPriorityLevel">GSM Priority Level</label>
+            <select class="form-control" id="GSMPriorityLevel">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option selected>3</option>
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="ReplaceIfPresent">Replace If Present</label>
+            <select class="form-control" id="ReplaceIfPresent">
+                <option>True</option>
+                <option selected>False</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+    <div class="modal fade" id="modalForm">
+        <div class="modal-dialog modal-dialog-centered modal-between-sm-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">New Action</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                             <div class="col-5"><p>Action function</p></div>
+                            
+                             <div class="col-7">
+                            
+                                <select class="form-control" value name="ActionType" data-placeholder="Select" id="ActionType" >
+    
+                                        <option value="">Select Action</option>    
+                                        <option value="NO_ACTION">NO_ACTION</option>
+                                        <option value="FORM">FORM</option>
+                                        <option value="TRANSLIT">TRANSLIT</option>
+                                        <option value="SEND">SEND</option>
+                                        <option value="DEFINE_USER_LANGUAGE">DEFINE_USER_LANGUAGE</option>
+                                        <option value="DROP">DROP</option>
+                                        <option value="DEFINE_ABONENT_INFO">DEFINE_ABONENT_INFO</option>
+                                        <option value="ADD_TAIL_FROM_BALANCE">ADD_TAIL_FROM_BALANCE</option>
+                                        <option value="HTTP_REQUEST_ACTION">HTTP_REQUEST_ACTION</option>
+                                </select>
+                            </div>
+                       
+                        </div>
+                    </div>
+                   <div class="container">
+                    
+                    <div class="row">
+                        
+                        <div class="col-10">
+                            <p> Notification Templates</p>
+                        </div>
+                        
+                        <div class="col-2">
+                            <span id="show-modal" class="btn5 btn btn-outline-primary"><i class="fa-solid fa-plus"></i> Add</span>
+                        </div>
+
+
+                        <div class="col-12 mt-5 mb-3 container-fluid">
+                            <table id="table-notTemplates" class=" text-sm-center table-responsive-md table table-bordered w-100">
+                                <thead>
+                                <tr class="text-center"  style="font-size: 14px;">
+                                    <th data-key="Language">Language</th>
+                                    <th data-key="Notification text">Notification text</th>
+                                    <th data-key="Actions">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <td>dsdsad</td>
+                                    <td>dsdsad</td>
+                                    <td>dsdsad</td>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    
+                    </div>
+                   
+                
+                   
+                    <div class="modal-footer  float-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('general.close')</button>
+                        <button type="button" class="saveBtn btn btn-success" id="generalSave">@lang('general.save') </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!-- __________________________________________________________________________________________________ -->
+ 
+<div class="row ">
+    <div class="col-12">
+        Notification Templates
+    <div class="form-group float-right mb-0 mr-0 mb-3 pr-0">
+        
+    </div>
+</div>
+
+<div class="card-body mt-3>
+    <table id="table-notTemplates" class=" text-sm-center table-responsive-md table table-bordered w-100">
+       <thead>
+       <tr class="text-center"  style="font-size: 14px;">
+           <th data-key="Language">Language</th>
+           <th data-key="Notification text">Notification text</th>
+           <th data-key="Actions">Actions</th>
+       </tr>
+       </thead>
+       <tbody>
+       </tbody>
+   </table>
+</div>
+</div>
