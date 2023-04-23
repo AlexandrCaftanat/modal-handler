@@ -1,0 +1,1 @@
+#Handler function for switch modal window
